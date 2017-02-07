@@ -56,14 +56,13 @@ if (bio.skills.length > 0) {
 }
 
 var work = {
-    "jobs": [
-        {
-            "employer": "International Bank",
-            "title": "Unix engineer",
-            "location": "London, UK",
-            "dates": "2004 to current",
-            "description": "Derivative trading support"
-        },
+    "jobs": [{
+        "employer": "International Bank",
+        "title": "Unix engineer",
+        "location": "London, UK",
+        "dates": "2004 to current",
+        "description": "Derivative trading support"
+    },
         {
             "employer": "International BankG",
             "title": "Unix SA",
@@ -105,13 +104,14 @@ if (work.jobs.length > 0) {
 // $("#main").append(work["position"]);
 // $("#main").append(education.years);
 //获取鼠标位置
-$(document).click(function (loc) {
+$(document).click(function(loc) {
     var x = loc.pageX;
     var y = loc.pageY;
     console.log(x, y);
 });
 //名字国际化切换
 $("#main").append(internationalizeButton);
+
 function inName(name) {
     name = name.split(" ");
     console.log(name);
@@ -121,14 +121,13 @@ function inName(name) {
     // console.log(name[0],name[1]);
 }
 var projects = {
-    "projects": [
-        {
-            "title": "TFL train arrivals",
-            "dates": "2014",
-            "description": "TFL Train arrival board",
-            "images": ["images/197x148.gif"],
-            "link": "http://www.webificio.it/dboard"
-        },
+    "projects": [{
+        "title": "TFL train arrivals",
+        "dates": "2014",
+        "description": "TFL Train arrival board",
+        "images": ["images/197x148.gif"],
+        "link": "http://www.webificio.it/dboard"
+    },
         {
             "title": "BhaktiEvent e-store",
             "dates": "2013",
@@ -145,7 +144,7 @@ var projects = {
         }
     ]
 };
-projects.display = function () {
+projects.display = function() {
     for (var project in projects.projects) {
         $("#projects").append(HTMLprojectStart);
         var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title),
@@ -161,45 +160,43 @@ projects.display = function () {
 };
 projects.display();
 var educatioin = {
-    "schools": [
-        {
-            "name": "High School",
-            "location": "Perugia, Italy",
-            "degree": "High School Diploma",
-            "major": ["Science", "English"],
-            "dates": "From: 1980 To: 1984",
-            "url": "#"
-        },
+    "schools": [{
+        "name": "High School",
+        "location": "Perugia, Italy",
+        "degree": "High School Diploma",
+        "major": ["Science", "English"],
+        "dates": "From: 1980 To: 1984",
+        "url": "#"
+    },
         {
             "name": "Open University",
             "location": "Milton Keynes",
             "degree": "Certificate in Math and Computing",
-            "major": [ "CS", "Math"],
+            "major": ["CS", "Math"],
             "dates": "From: 2006 To: 2010",
             "url": "http://open.ac.uk"
         }
     ],
-    "onlineCourses": [
-        {
-            "title": "Learn to Program: The Fundamentals",
-            "school": "iMooc",
-            "dates": "2016",
-            "url" : "http://www.imooc.com/"
-        },
+    "onlineCourses": [{
+        "title": "Learn to Program: The Fundamentals",
+        "school": "iMooc",
+        "dates": "2016",
+        "url": "http://www.imooc.com/"
+    },
         {
             "title": "Software Engineering for SaaS",
             "school": "Udacity",
             "dates": "2017",
-            "url" : "https://www.coursera.org"
+            "url": "https://www.coursera.org"
         }
     ]
 };
-educatioin.display=function () {
+educatioin.display = function() {
     for (var edu in educatioin.schools) {
         $("#education").append(HTMLschoolStart);
         var formattedName = HTMLschoolName.replace("%data%", educatioin.schools[edu].name),
             formattedDegree = HTMLschoolDegree.replace("%data%", educatioin.schools[edu].degree),
-            formattedNameDegree=formattedName+formattedDegree,
+            formattedNameDegree = formattedName + formattedDegree,
             formattedDates = HTMLschoolDates.replace("%data%", educatioin.schools[edu].dates),
             formattedLocation = HTMLschoolLocation.replace("%data%", educatioin.schools[edu].location),
             formattedMajor = HTMLschoolMajor.replace("%data%", educatioin.schools[edu].major);
@@ -212,7 +209,7 @@ educatioin.display=function () {
     for (var edu in educatioin.schools) {
         var formattedTitle = HTMLonlineTitle.replace("%data%", educatioin.onlineCourses[edu].title),
             formattedSchool = HTMLonlineSchool.replace("%data%", educatioin.onlineCourses[edu].school),
-            formattedTitleSchool=formattedTitle+formattedSchool,
+            formattedTitleSchool = formattedTitle + formattedSchool,
             formattedDates = HTMLonlineDates.replace("%data%", educatioin.onlineCourses[edu].dates),
             formattedURL = HTMLonlineURL.replace("%data%", educatioin.onlineCourses[edu].url);
         $(".education-entry:last").append(formattedTitleSchool);
