@@ -49,14 +49,14 @@ var HTMLschoolName = '<a href="#">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolMajor = '<em><br>Major: %data%</em><br>';
 
 // online courses
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
+var HTMLonlineClasses = '<h3 >Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineURL = '<a href="#" class="url">%data%</a><br>';
 
 //map
 var internationalizeButton = '<button>Internationalize</button>';
@@ -66,10 +66,11 @@ var googleMap = '<div id="map"></div>';
 /*
  The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
  */
-$(document).ready(function() {
-    $('button').click(function() {
+$(document).ready(function () {
+    $('button').click(function () {
         var $name = $('#name');
-        var iName = inName($name.text()) || function() {};
+        var iName = inName($name.text()) || function () {
+            };
         $name.html(iName);
     });
 });
@@ -87,7 +88,7 @@ function logClicks(x, y) {
     console.log('x location: ' + x + '; y location: ' + y);
 }
 
-$(document).click(function(loc) {
+$(document).click(function (loc) {
     // your code goes here!
     var x = loc.pageX;
     var y = loc.pageY;
@@ -137,7 +138,7 @@ function initializeMap() {
         // the locations array. Note that forEach is used for array iteration
         // as described in the Udacity FEND Style Guide:
         // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
-        education.schools.forEach(function(school) {
+        education.schools.forEach(function (school) {
             locations.push(school.location);
         });
 
@@ -145,7 +146,7 @@ function initializeMap() {
         // the locations array. Note that forEach is used for array iteration
         // as described in the Udacity FEND Style Guide:
         // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
-        work.jobs.forEach(function(job) {
+        work.jobs.forEach(function (job) {
             locations.push(job.location);
         });
 
@@ -180,7 +181,7 @@ function initializeMap() {
         });
 
         // hmmmm, I wonder what this is about...
-        google.maps.event.addListener(marker, 'click', function() {
+        google.maps.event.addListener(marker, 'click', function () {
             // your code goes here!
         });
 
@@ -214,7 +215,7 @@ function initializeMap() {
         var service = new google.maps.places.PlacesService(map);
 
         // Iterates through the array of locations, creates a search object for each location
-        locations.forEach(function(place) {
+        locations.forEach(function (place) {
             // the search request object
             var request = {
                 query: place
@@ -247,7 +248,7 @@ window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function (e) {
     //Make sure the map bounds get updated on page resize
     map.fitBounds(mapBounds);
 });
